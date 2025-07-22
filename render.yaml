@@ -6,14 +6,21 @@ services:
     startCommand: npm start
     envVars:
       - key: DB_USER
-        sync: false
+        value: neondb_owner
       - key: DB_PASSWORD
-        sync: false
+        value: npg_vZ65eFAqQEmH
       - key: DB_HOST
-        sync: false
+        value: ep-damp-shape-ae7wyjkq-pooler.c-2.us-east-2.aws.neon.tech
       - key: DB_NAME
-        sync: false
+        value: mydatabase
       - key: DB_PORT
-        sync: false
+        value: 5432
       - key: PORT
-        sync: false
+        fromService:
+          type: web
+          name: ecommerce-backend
+          envVarKey: PORT
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_vZ65eFAqQEmH@ep-damp-shape-ae7wyjkq-pooler.c-2.us-east-2.aws.neon.tech/mydatabase?sslmode=require&channel_binding=require
+      - key: PAYMENT_GATEWAY_URL
+        value: https://pasarela-433766410684.europe-west1.run.app/payment/process
